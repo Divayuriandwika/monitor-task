@@ -11,10 +11,10 @@ import Button from '@material-ui/core/Button';
 import Hidden from '@material-ui/core/Hidden';
 import { Formik } from 'formik';
 import { Link, useHistory } from 'react-router-dom';
-import Logo from '../assets/office2.gif'
+import Logo from '../assets/office1.gif'
 import Avatar from "@material-ui/core/Avatar";
 import Logo2 from '../assets/green.jpeg'
-import Logo3 from '../assets/girl3.JPG'
+import Logo3 from '../assets/boy3.JPG'
 
 const drawerWidth = 240;
 
@@ -130,22 +130,29 @@ export default function Dashboard() {
                 <div className={classes.appBarSpacer} />
                 <Container maxWidth="0" className={classes.container}>
                     <Grid container spacing={0} justify='center'>
-                        <Grid item xs={12} md={4} lg={3} >
-                            <Paper className={fixedHeightPaper} >
 
+                    <Hidden smDown>
+                        <Grid item xs={12} md={8} lg={6} >
+                            <Paper className={classes.paper2} >
+                            <img src={Logo} alt="" className={classes.paper2}/>
+                            </Paper>
+                        </Grid>
+                    </Hidden>
+
+                        <Grid item xs={12} md={4} lg={3} >
+                            <Paper className={fixedHeightPaper}>
                             <Typography
 									component="h1"
 									variant="h5"
 									style={{ fontFamily: 'Fredoka One, cursive', color: '#6C5434' }}
 								>
-									Sign Up
+									Sign In
 								</Typography>
 
-                                <Avatar alt="Remy Sharp" src={Logo3} className={classes.large} />
+                                     <Avatar alt="Remy Sharp" src={Logo3} className={classes.large} />
 
 								<Formik
 									initialValues={{
-										fullname: '',
 										email: '',
 										password: ''
 									}}
@@ -164,9 +171,8 @@ export default function Dashboard() {
 										return errors;
 									}}
 									onSubmit={async (values) => {
-										// await dispatch(addUser(values));
-										await alert('Registration Success');
-										await history.push('/sign-in');
+										// await dispatch(loginUser(values));
+										await history.push('/');
 									}}
 								>
 									{({ handleChange, handleSubmit, values, isSubmitting, errors, touched }) => {
@@ -174,20 +180,7 @@ export default function Dashboard() {
 											<form className={classes.form} noValidate onSubmit={handleSubmit}>
 												<TextField
 													// variant="outlined"
-													required
-													fullWidth
-													id="fullname"
-													label="Full Name"
-													name="fullname"
-													autoComplete="fullname"
-													onChange={handleChange}
-													values={values.fullname}
-                                                    size="small"
-                                                    style={{ marginTop: 20, marginBottom: 20}}
-												/>
-												<TextField
-													// variant="outlined"
-													style={{ marginBottom: 20}}
+													margin="dense"
 													required
 													fullWidth
 													id="email"
@@ -196,11 +189,13 @@ export default function Dashboard() {
 													autoComplete="email"
 													onChange={handleChange}
 													values={values.email}
-													size="small"
+                                                    size="small"
+                                                    style={{ marginTop: 20, marginBottom: 15}}
 												/>
 												<TextField
-													// variant="outlined"
-													style={{ marginBottom: 20}}
+                                                    // variant="outlined"
+                                                    style={{ marginBottom: 20}}
+													margin="dense"
 													required
 													fullWidth
 													name="password"
@@ -221,35 +216,39 @@ export default function Dashboard() {
 													style={{
 														borderRadius: '3px',
 														fontFamily: 'Roboto, sans-serif',
-														backgroundColor: '#329da8',
-														marginTop: '10px',
-														color: '#6C5434'
+														backgroundColor: '#d15a5a',
+														color: '#6C5434',
+														marginTop: '10px'
 													}}
 												>
-													<b>Sign Up</b>
+													<b>Sign In</b>
 												</Button>
-											</form>
+                                                </form>
 										);
 									}}
 								</Formik>
-									<Typography component="h3" variant="subtitle2" style={{ marginTop: 10 }}>
-										<i>Already have an account? </i>
-										<br />
-										<Link to="/"
-											style= {{ fontFamily: 'Roboto, sans-serif', color: '#6C5434'}}>
-											<i>Click here to Sign In</i>
-										</Link>
-									</Typography>
+												<Typography
+													component="h3"
+													variant="subtitle2"
+                                                    style={{ paddingTop: '16px' }}
+                                                    
+												>
+													<i justify='center'>Not have an account yet?</i>
+                                                    <br/>
+												
+												<Link
+													color="inherit"
+													style={{
+														fontFamily: 'Roboto, sans-serif',
+														color: '#6C5434'
+													}}
+													to="/sign-up"
+												>
+													<i>Click here to Sign Up</i>
+												</Link>
+                                                </Typography>
                             </Paper>
                         </Grid>
-
-                        <Hidden smDown>
-                        <Grid item xs={12} md={8} lg={6}>
-                            <Paper className={classes.paper2}>
-                            <img src={Logo} alt="" className={classes.paper2}/>
-                            </Paper>
-                        </Grid>
-                        </Hidden>
 
                     </Grid>
                 </Container>
