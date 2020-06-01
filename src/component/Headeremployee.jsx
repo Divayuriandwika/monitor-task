@@ -4,7 +4,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import Header2 from './Header2'
+import Header3 from './Header3'
 
 const useStyles = makeStyles((theme) => ({
   '@global': {
@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   appBar: {
-    backgroundColor: '#d15a5a',
+    backgroundColor: '#329da8',
   },
   toolbar: {
     flexWrap: 'wrap',
@@ -49,7 +49,7 @@ export default function Pricing() {
             PT. PRIMA
           </Typography>
 
-          <Header2/>
+          <Header3/>
     
         </Toolbar>
       </AppBar>

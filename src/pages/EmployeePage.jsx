@@ -5,15 +5,14 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Footer from "../component/Footer"
-import Header from "../component/Header"
-import List from '../component/EmployeeList'
-import Logo from '../assets/manager.png'
-import { Typography } from '@material-ui/core';
+import Header from "../component/Headeremployee"
+import Card from "../component/Cardemp"
+import { Paper, Typography } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
-import Logo1 from '../assets/work.png'
-import Logo2 from '../assets/time.png'
-import Logo3 from '../assets/teamwork.png'
-
+import Logo from '../assets/calendarwhite.png'
+import Logo1 from '../assets/worktosca.png'
+import Logo2 from '../assets/timetosca.png'
+import Logo3 from '../assets/teamworktosca.png'
 
 const drawerWidth = 240;
 
@@ -91,9 +90,10 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         overflow: 'auto',
         flexDirection: 'column',
+        
     },
     fixedHeight: {
-        height: 720,
+        height: 700,
     },
     paper2: {
         padding: theme.spacing(2),
@@ -132,7 +132,7 @@ export default function Dashboard() {
 
                 <Container maxWidth="0" className={classes.container}>
                 <Header/>
-                    <div style={{ backgroundColor: '#d15a5a', paddingBottom: 70}}>
+                <div style={{ backgroundColor: '#329da8', paddingBottom: 70}}>
                          <img src="" alt=""/>
                             <Grid container spacing={3} justify='center' style={{marginTop:80}}>
                                 <Grid item xs={12} md={3} lg={2}>
@@ -143,15 +143,15 @@ export default function Dashboard() {
 
                                 <Grid item xs={12} md={5} lg={3}>
                                     <div className={classes.paper3}>
-                                        <Typography variant='h3' style={{marginTop: 15}}>
-                                            Welcome Leader!
+                                        <Typography variant='h3' >
+                                            Welcome !
                                         </Typography>
                                         <br/>
                                         <Typography variant='h5'>        
-                                            Start managing assignment and time for your team.
+                                        It's easier to see the assignment given.
                                         </Typography>
                                         <Typography variant='h5'>        
-                                            Build your team. Be a good leader.
+                                        Work with enthusiasm. Be a good employee.
                                         </Typography>
                                     </div>
                                 </Grid>
@@ -216,13 +216,27 @@ export default function Dashboard() {
                                 </Grid>
                                 </Grid>        
                     </div>
-              
 
-                    <Grid container spacing={3} justify='center' style={{ marginBottom: 50, marginTop: 70}}>
-                        <Grid item xs={12} md={12} lg={10} >
+
+                    <Grid container spacing={3} 
+                    style={{ marginBottom: 50, marginTop: 70}}
+                    >
+                         <Grid item xs={12} md={12} lg={3} >
+                            <Paper >
+
+                            </Paper>
+                        </Grid>
+
+                        <Grid item xs={12} md={12} lg={6} >
                             <div className={fixedHeightPaper}>
-                            <List/>
+                            <Card/>
                             </div>
+                        </Grid>
+
+                        <Grid item xs={12} md={12} lg={3} >
+                            <Paper >
+                    
+                            </Paper>
                         </Grid>
                     </Grid>
                             <Footer />

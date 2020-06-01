@@ -7,14 +7,14 @@ import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 
 
-const list = {
-  listStyle: 'none',
-}
+// const list = {
+//   listStyle: 'none',
+// }
 
-const spacing = {
-  listStyle: 'none',
-  paddingTop: '10px',
-}
+// const spacing = {
+//   listStyle: 'none',
+//   paddingTop: '10px',
+// }
 
 const useStyles = makeStyles((theme) => ({
   // Buat footernya nanti diatur-atur aja minHeight sama marginTopnya sesuai sama content bodynya 

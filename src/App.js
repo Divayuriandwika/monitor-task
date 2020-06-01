@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import SignUp from './pages/SignUp'
 import SignIn from './pages/SignIn'
 import Manager from './pages/ManagerPage'
+import Employee from './pages/EmployeePage'
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
           <Route exact path='/' component={SignIn}/>
           <Route path='/sign-up' component={SignUp}/>
           <Route path='/manager' component={Manager}/>
+          <Route path='/employee' component={Employee}/>
        </Switch>
      </Router>
     </div>
