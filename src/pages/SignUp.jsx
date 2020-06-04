@@ -15,6 +15,8 @@ import Logo from '../assets/office2.gif'
 import Avatar from "@material-ui/core/Avatar";
 import Logo2 from '../assets/green.jpeg'
 import Logo3 from '../assets/girl3.JPG'
+import {useDispatch} from 'react-redux'
+import {addUser} from '../redux/actions/signupAction'
 
 const drawerWidth = 240;
 
@@ -121,6 +123,7 @@ export default function Dashboard() {
     const classes = useStyles();
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
     const history = useHistory();
+    const dispatch = useDispatch()
 
 
     return (
@@ -163,10 +166,13 @@ export default function Dashboard() {
 
 										return errors;
 									}}
-									onSubmit={async (values) => {
+									onSubmit={(values) => {
 										// await dispatch(addUser(values));
-										await alert('Registration Success');
-										await history.push('/sign-in');
+										// await alert('Registration Success');
+                                        // await history.push('/sign-in');
+                                        dispatch(addUser(values));
+                                        // console.log(values);
+                                        
 									}}
 								>
 									{({ handleChange, handleSubmit, values, isSubmitting, errors, touched }) => {
