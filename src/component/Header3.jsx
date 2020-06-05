@@ -11,6 +11,7 @@ import Logo6 from "../assets/emailtosca.png";
 import Link from "@material-ui/core/Link";
 import Tooltip from "@material-ui/core/Tooltip";
 
+
 const styles = (theme) => ({
   root: {
     position: "absolute",
@@ -62,6 +63,7 @@ const AppBarCollapse = (props) => (
 
       <MenuItem style={{ color: "#329da8" }}>Logout</MenuItem>
     </ButtonAppBarCollapse>
+
     <div className={props.classes.buttonBar} id="appbar-collapse">
       <Tooltip title="Github" arrow>
         <Button color="inherit">

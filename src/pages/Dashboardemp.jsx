@@ -30,7 +30,7 @@ import Logois from '../assets/isyana.jpg'
 import Logoek from '../assets/eka.jpeg'
 import Logohu from '../assets/husein.jpeg'
 import Divider from '@material-ui/core/Divider';
-
+import { Link, useHistory } from 'react-router-dom';
 
 const list = {
     listStyle: 'none',
@@ -196,6 +196,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Dashboard() {
     const classes = useStyles();
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+    const history = useHistory();
 
     return (
         <div className={classes.root}>
@@ -234,7 +235,7 @@ export default function Dashboard() {
                                 <Grid container spacing={0} justify='center' style={{ marginTop: 50}}>
 
                                 <Grid item xs={12} md={4} lg={2} >
-                                        <Paper className={fixedHeightPaper}>
+                                        <Paper className={fixedHeightPaper} onClick={() => {history.push('/employee')}}>
                                             <img src={Logo} alt="" style={{ maxWidth: 80}}/>
                                             <br/>
                                             <Typography>

@@ -10,6 +10,7 @@ import Logo5 from "../assets/email.png";
 import Logo6 from "../assets/emailred.png";
 import Link from "@material-ui/core/Link";
 import Tooltip from "@material-ui/core/Tooltip";
+import { useHistory } from 'react-router-dom';
 
 const styles = (theme) => ({
   root: {
@@ -32,6 +33,14 @@ const styles = (theme) => ({
     margin: 5,
   },
 });
+
+// const logout = ()=> {
+//   const history = useHistory()
+//     const path = '/'
+//     history.push(path)
+// }
+
+
 
 const AppBarCollapse = (props) => (
   <div className={props.classes.root}>
@@ -86,7 +95,7 @@ const AppBarCollapse = (props) => (
           </Link>{" "}
         </Button>
       </Tooltip>
-      <Button color="inherit">Logout</Button>
+      <Button color="inherit" >Logout</Button>
     </div>
   </div>
 );

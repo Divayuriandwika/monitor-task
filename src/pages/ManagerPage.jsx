@@ -21,7 +21,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-
+import Tablenew from '../component/NewTable'
 
 
 const drawerWidth = 240;
@@ -230,9 +230,9 @@ export default function Dashboard() {
 
                     <Grid container spacing={3} justify='center' style={{ marginBottom: 50, marginTop: 70}}>
                         <Grid item xs={12} md={12} lg={10} >
-                            <Paper className={fixedHeightPaper}>
-
-                            </Paper>
+                            <div className={fixedHeightPaper}>
+                            <Tablenew/>
+                            </div>
                         </Grid>
                     </Grid>
                             <Footer />

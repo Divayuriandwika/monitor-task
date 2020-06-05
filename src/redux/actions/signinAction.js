@@ -41,7 +41,7 @@ export const newLogin = (data, history) => {
 			
 		}
 		else if(data === 'karyawan') {
-			history.push('/employee')
+			history.push('/dashemp')
 		}
 		// 	
 		console.log(data);

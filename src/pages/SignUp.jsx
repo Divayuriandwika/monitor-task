@@ -10,11 +10,11 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Hidden from '@material-ui/core/Hidden';
 import { Formik } from 'formik';
-import { Link, useHistory } from 'react-router-dom';
 import Logo from '../assets/office2.gif'
 import Avatar from "@material-ui/core/Avatar";
 import Logo2 from '../assets/green.jpeg'
 import Logo3 from '../assets/girl3.JPG'
+import { Link, useHistory } from 'react-router-dom';
 import {useDispatch} from 'react-redux'
 import {addUser} from '../redux/actions/signupAction'
 
@@ -166,12 +166,10 @@ export default function Dashboard() {
 
 										return errors;
 									}}
-									onSubmit={(values) => {
-										// await dispatch(addUser(values));
-										// await alert('Registration Success');
-                                        // await history.push('/sign-in');
-                                        dispatch(addUser(values));
-                                        // console.log(values);
+									onSubmit={async(values) => {
+										await dispatch(addUser(values));
+										await alert('Registration Success');
+                                        await history.push('/');
                                         
 									}}
 								>
