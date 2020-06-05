@@ -34,12 +34,12 @@ function createData(name, calories, fat, carbs, protein, edit, del) {
 }
 
 const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0,  <ModalEdit/>, <DeleteIcon/>),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3,  <ModalEdit/>, <DeleteIcon/>),
-  createData('Eclair', 262, 16.0, 24, 6.0,  <ModalEdit/>, <DeleteIcon/>),
-  createData('Cupcake', 305, 3.7, 67, 4.3,  <ModalEdit/>, <DeleteIcon/>),
-  createData('Gingerbread', 356, 16.0, 49, 3.9,  <ModalEdit/>, <DeleteIcon/>),
-  createData('Gingerbread', 356, 16.0, 49, 3.9,  <ModalEdit/>, <DeleteIcon/>),
+  createData('Isyana Sarasvati', 'Frontend', 'Create main components', '20/6/2020', '08123456789',  <ModalEdit/>, <DeleteIcon/>),
+  createData('Eka Gustiwana', 'Frontend', 'Web styling', '20/6/2020', '08123456789',  <ModalEdit/>, <DeleteIcon/>),
+  createData('Husein', 'Backend', 'Create Database','20/6/2020' , '08123456789',  <ModalEdit/>, <DeleteIcon/>),
+  // createData('Cupcake', 305, 3.7, 67, 4.3,  <ModalEdit/>, <DeleteIcon/>),
+  // createData('Gingerbread', 356, 16.0, 49, 3.9,  <ModalEdit/>, <DeleteIcon/>),
+  // createData('Gingerbread', 356, 16.0, 49, 3.9,  <ModalEdit/>, <DeleteIcon/>),
 ];
 
 const useStyles = makeStyles({

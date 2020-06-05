@@ -22,7 +22,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Tablenew from '../component/NewTable'
-
+import ModalAdd from '../component/ModalAdd'
 
 const drawerWidth = 240;
 
@@ -100,9 +100,10 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         overflow: 'auto',
         flexDirection: 'column',
+        
     },
     fixedHeight: {
-        height: 720,
+        height: 450,
     },
     paper2: {
         padding: theme.spacing(2),
@@ -232,9 +233,11 @@ export default function Dashboard() {
                         <Grid item xs={12} md={12} lg={10} >
                             <div className={fixedHeightPaper}>
                             <Tablenew/>
+                            <ModalAdd/>
                             </div>
                         </Grid>
                     </Grid>
+                    
                             <Footer />
                 </Container>
             </main>

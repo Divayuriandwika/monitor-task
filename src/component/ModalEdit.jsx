@@ -71,9 +71,9 @@ function FormDialog({ updateUser }) {
             about,
         };
 
-        updateUser(userProfile);
+        // updateUser(userProfile);
 
-        console.log(userProfile);
+        // console.log(userProfile);
         
 
         // getUser(userProfile.id);
