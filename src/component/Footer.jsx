@@ -55,7 +55,7 @@ function Cols() {
     <Grid container spacing={3} >
         <Grid item lg={12} md= {12} xs={12}>
           <Typography>
-            PT. Prima Jaya Abadi Sejahtera
+            PT. Prima Teknologi
           </Typography>
         </Grid>
     </Grid>

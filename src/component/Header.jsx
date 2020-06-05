@@ -1,10 +1,14 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Header2 from './Header2'
+import {useDispatch, useSelector} from 'react-redux'
+import {getName} from '../redux/actions/usersAction'
+
+
 
 const useStyles = makeStyles((theme) => ({
   '@global': {
@@ -39,6 +43,20 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Pricing() {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector((state) => state.isLoggedIn);
+  const userName = useSelector((state) => state.getName);
+  
+  useEffect(() => {
+		const userID = localStorage.getItem('id');
+		if (userID) {
+			dispatch(getName(userID));
+    }
+    console.log(userID);
+  }, []);
+
+  console.log('test')
+  
 
   return (
     <React.Fragment>

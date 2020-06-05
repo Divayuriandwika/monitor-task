@@ -6,13 +6,22 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Footer from "../component/Footer"
 import Header from "../component/Header"
-import List from '../component/EmployeeList'
 import Logo from '../assets/manager.png'
 import { Typography } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import Logo1 from '../assets/work.png'
 import Logo2 from '../assets/time.png'
 import Logo3 from '../assets/teamwork.png'
+import {useDispatch} from 'react-redux'
+import {addTask} from '../redux/actions/assignmentAction'
+import Paper from '@material-ui/core/Paper'
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+
 
 
 const drawerWidth = 240;
@@ -124,6 +133,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Dashboard() {
     const classes = useStyles();
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+    const dispatch = useDispatch()
 
     return (
         <div className={classes.root}>
@@ -220,9 +230,9 @@ export default function Dashboard() {
 
                     <Grid container spacing={3} justify='center' style={{ marginBottom: 50, marginTop: 70}}>
                         <Grid item xs={12} md={12} lg={10} >
-                            <div className={fixedHeightPaper}>
-                            <List/>
-                            </div>
+                            <Paper className={fixedHeightPaper}>
+
+                            </Paper>
                         </Grid>
                     </Grid>
                             <Footer />

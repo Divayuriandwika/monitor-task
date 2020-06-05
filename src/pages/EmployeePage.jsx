@@ -13,6 +13,7 @@ import Logo from '../assets/calendarwhite.png'
 import Logo1 from '../assets/worktosca.png'
 import Logo2 from '../assets/timetosca.png'
 import Logo3 from '../assets/teamworktosca.png'
+import {useSelector} from 'react-redux'
 
 const drawerWidth = 240;
 
@@ -124,6 +125,9 @@ const useStyles = makeStyles((theme) => ({
 export default function Dashboard() {
     const classes = useStyles();
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+    const employee = useSelector((state) => {
+        return state.userID;
+    });
 
     return (
         <div className={classes.root}>
@@ -144,7 +148,11 @@ export default function Dashboard() {
                                 <Grid item xs={12} md={5} lg={3}>
                                     <div className={classes.paper3}>
                                         <Typography variant='h3' >
-                                            Welcome !
+                                            <h3>Welcome !</h3>
+                                        {employee.length !== 0
+                                                        ? employee.data
+                                                              .fullname
+                                                        : null}
                                         </Typography>
                                         <br/>
                                         <Typography variant='h5'>        

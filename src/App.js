@@ -4,7 +4,8 @@ import SignUp from './pages/SignUp'
 import SignIn from './pages/SignIn'
 import Manager from './pages/ManagerPage'
 import Employee from './pages/EmployeePage'
-import Dashboardemp from './component/Dashboardemp'
+import Dashboardemp from './pages/Dashboardemp'
+import DashboardMng from './pages/DashboardMng'
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path='/manager' component={Manager}/>
           <Route path='/employee' component={Employee}/>
           <Route path='/dashemp' component={Dashboardemp}/>
+          <Route path='/dashmng' component={DashboardMng}/>
        </Switch>
      </Router>
     </div>
