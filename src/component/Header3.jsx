@@ -8,8 +8,9 @@ import Logo3 from "../assets/google3.png";
 import Logo4 from "../assets/googletosca.png";
 import Logo5 from "../assets/email.png";
 import Logo6 from "../assets/emailtosca.png";
-import Link from "@material-ui/core/Link";
+// import Link from "@material-ui/core/Link";
 import Tooltip from "@material-ui/core/Tooltip";
+import {Link} from 'react-router-dom'
 
 
 const styles = (theme) => ({
@@ -61,7 +62,10 @@ const AppBarCollapse = (props) => (
         </MenuItem>
       </Tooltip>
 
+      <Link to='/'>
       <MenuItem style={{ color: "#329da8" }}>Logout</MenuItem>
+      </Link>
+
     </ButtonAppBarCollapse>
 
     <div className={props.classes.buttonBar} id="appbar-collapse">
@@ -88,7 +92,10 @@ const AppBarCollapse = (props) => (
           </Link>{" "}
         </Button>
       </Tooltip>
+
+      <Link to='/'>
       <Button color="inherit">Logout</Button>
+      </Link>
     </div>
   </div>
 );

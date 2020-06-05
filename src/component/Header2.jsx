@@ -8,9 +8,10 @@ import Logo3 from "../assets/google3.png";
 import Logo4 from "../assets/googlered.png";
 import Logo5 from "../assets/email.png";
 import Logo6 from "../assets/emailred.png";
-import Link from "@material-ui/core/Link";
+// import Link from "@material-ui/core/Link";
 import Tooltip from "@material-ui/core/Tooltip";
 import { useHistory } from 'react-router-dom';
+import {Link} from 'react-router-dom'
 
 const styles = (theme) => ({
   root: {
@@ -40,9 +41,11 @@ const styles = (theme) => ({
 //     history.push(path)
 // }
 
-
+// const history = useHistory()
 
 const AppBarCollapse = (props) => (
+      
+
   <div className={props.classes.root}>
     <ButtonAppBarCollapse>
       <Tooltip title="Github" arrow>
@@ -69,7 +72,10 @@ const AppBarCollapse = (props) => (
         </MenuItem>
       </Tooltip>
 
+      <Link to= "/">
       <MenuItem style={{ color: "#d15a5a" }}>Logout</MenuItem>
+      </Link>
+
     </ButtonAppBarCollapse>
     <div className={props.classes.buttonBar} id="appbar-collapse">
       <Tooltip title="Github" arrow>
@@ -95,7 +101,11 @@ const AppBarCollapse = (props) => (
           </Link>{" "}
         </Button>
       </Tooltip>
+
+      <Link to="/">
       <Button color="inherit" >Logout</Button>
+      </Link>
+
     </div>
   </div>
 );
