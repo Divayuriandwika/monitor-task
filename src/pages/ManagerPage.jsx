@@ -23,6 +23,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Tablenew from '../component/NewTable'
 import ModalAdd from '../component/ModalAdd'
+import Add from '../component/Add'
 
 const drawerWidth = 240;
 
@@ -230,10 +231,16 @@ export default function Dashboard() {
               
 
                     <Grid container spacing={3} justify='center' style={{ marginBottom: 50, marginTop: 70}}>
+
+                       <Grid item xs={12} md={12} lg={6} >
+                            <div className={fixedHeightPaper}>
+                            <Add/>
+                            </div>
+                        </Grid>
+
                         <Grid item xs={12} md={12} lg={10} >
                             <div className={fixedHeightPaper}>
                             <Tablenew/>
-                            <ModalAdd/>
                             </div>
                         </Grid>
                     </Grid>
