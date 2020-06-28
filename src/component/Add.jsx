@@ -36,6 +36,7 @@ export default function Add() {
 									onSubmit={async(values) => {
 										await dispatch(addTask(values));
 										await alert('Assignment successfully added');
+										await window.location.reload();
                                         // await history.push('/');
                                         
 									}}

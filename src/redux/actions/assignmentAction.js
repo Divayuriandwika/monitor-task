@@ -37,9 +37,61 @@ export const addTask = (values) => {
 // };
 export const getTaskSuccess = (data) => {
 	return {
-		type: 'POST_TASK',
+		type: 'GET_TASK',
 		payload: {
 			data
 		}
 	};
 };
+
+
+export const getAllTask = () => {
+	return (dispatch) => {
+		return axios
+		.get(`${apiUrl}/task`)
+		.then((response) => {
+				dispatch(getTaskSuccess(response.data.data))
+		})
+		.catch((error) => {
+			console.log(error);
+			throw error;
+			
+		})
+	}
+}
+
+
+export const getTaskID = (id) => {
+	return (dispatch) => {
+		return axios
+			.get(`${apiUrl}/task/manager/${id}`)
+			.then((response) => {
+				dispatch(getTaskIDSuccess(response.data));
+			})
+			.catch((error) => {
+				console.log(error);
+				throw error;
+			});
+	};
+};
+export const getTaskIDSuccess = (data) => {
+	return {
+		type: 'GET_TASK',
+		payload: {
+			data
+		}
+	};
+};
+
+
+export const deleteTask = (id) => {
+	return (dispatch) => {
+		return axios.delete(`${apiUrl}/task/${id}`)
+		.then((response) => {})
+		.catch((error) => {
+			console.log(error);
+			throw error;
+			
+		})
+	}
+}

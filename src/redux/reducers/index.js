@@ -9,7 +9,7 @@ const allReducers = combineReducers({
     userSignup: signupReducer,
     userSignin: signinReducer,
     userID : userID,
-    assignment : assignment,
+    allAssignment : assignment,
 });
 
 export default allReducers;

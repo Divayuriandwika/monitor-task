@@ -9,6 +9,8 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import ModalEdit from './ModalEdit'
 import DeleteIcon from '@material-ui/icons/Delete';
+import {useDispatch, useSelector} from 'react-redux'
+import {deleteTask} from '../redux/actions/assignmentAction'
 
 
 const StyledTableCell = withStyles((theme) => ({
@@ -29,18 +31,18 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-function createData(name, calories, fat, carbs, protein, edit, del) {
-  return { name, calories, fat, carbs, protein, edit, del};
-}
+// function createData(name, calories, fat, carbs, protein, edit, del) {
+//   return { name, calories, fat, carbs, protein, edit, del};
+// }
 
-const rows = [
-  createData('Isyana Sarasvati', 'Frontend', 'Create main components', '20/6/2020', '08123456789',  <ModalEdit/>, <DeleteIcon/>),
-  createData('Eka Gustiwana', 'Frontend', 'Web styling', '20/6/2020', '08123456789',  <ModalEdit/>, <DeleteIcon/>),
-  createData('Husein', 'Backend', 'Create Database','20/6/2020' , '08123456789',  <ModalEdit/>, <DeleteIcon/>),
+// const rows = [
+//   createData('Isyana Sarasvati', 'Frontend', 'Create main components', '20/6/2020', '08123456789',  <ModalEdit/>, <DeleteIcon/>),
+//   createData('Eka Gustiwana', 'Frontend', 'Web styling', '20/6/2020', '08123456789',  <ModalEdit/>, <DeleteIcon/>),
+//   createData('Husein', 'Backend', 'Create Database','20/6/2020' , '08123456789',  <ModalEdit/>, <DeleteIcon/>),
   // createData('Cupcake', 305, 3.7, 67, 4.3,  <ModalEdit/>, <DeleteIcon/>),
   // createData('Gingerbread', 356, 16.0, 49, 3.9,  <ModalEdit/>, <DeleteIcon/>),
   // createData('Gingerbread', 356, 16.0, 49, 3.9,  <ModalEdit/>, <DeleteIcon/>),
-];
+// ];
 
 const useStyles = makeStyles({
   table: {
@@ -50,6 +52,15 @@ const useStyles = makeStyles({
 
 export default function CustomizedTables() {
   const classes = useStyles();
+  const dispatch = useDispatch()
+  const allAssignment = useSelector((state) => state.allAssignment)
+
+  const deleteThisTask = async(id) => {
+    await dispatch(deleteTask(id))
+    await alert ('Delete task success')
+    await window.location.reload();
+  };
+
 
   return (
     <TableContainer component={Paper}>
@@ -66,17 +77,17 @@ export default function CustomizedTables() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.name}>
+          {allAssignment.map((row) => (
+            <StyledTableRow key={row._id}>
               <StyledTableCell component="th" scope="row">
                 {row.name}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.calories}</StyledTableCell>
-              <StyledTableCell align="right">{row.fat}</StyledTableCell>
-              <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-              <StyledTableCell align="right">{row.protein}</StyledTableCell>
-              <StyledTableCell align="right">{row.edit}</StyledTableCell>
-              <StyledTableCell align="right">{row.del}</StyledTableCell>
+              <StyledTableCell align="right">{row.division}</StyledTableCell>
+              <StyledTableCell align="right">{row.assignment}</StyledTableCell>
+              <StyledTableCell align="right">{row.deadline}</StyledTableCell>
+              <StyledTableCell align="right">{row.phone}</StyledTableCell>
+              <StyledTableCell align="right"><ModalEdit/></StyledTableCell>
+              <StyledTableCell align="right"><DeleteIcon onClick= {() => deleteThisTask(row._id)}></DeleteIcon></StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

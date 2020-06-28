@@ -12,7 +12,7 @@ import Box from '@material-ui/core/Box';
 import Logo1 from '../assets/work.png'
 import Logo2 from '../assets/time.png'
 import Logo3 from '../assets/teamwork.png'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {addTask} from '../redux/actions/assignmentAction'
 import Paper from '@material-ui/core/Paper'
 import Table from '@material-ui/core/Table';
@@ -136,6 +136,7 @@ export default function Dashboard() {
     const classes = useStyles();
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
     const dispatch = useDispatch()
+    const allAssignment = useSelector((state) => state.allAssignment)
 
     return (
         <div className={classes.root}>

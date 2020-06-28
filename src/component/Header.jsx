@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Header2 from './Header2'
 import {useDispatch, useSelector} from 'react-redux'
-import {getName} from '../redux/actions/usersAction'
+import {getAllTask} from '../redux/actions/assignmentAction'
 
 
 
@@ -45,17 +45,18 @@ export default function Pricing() {
   const classes = useStyles();
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
-  const userName = useSelector((state) => state.getName);
+  const assignment = useSelector((state) => state.taskID);
   
   useEffect(() => {
-		const userID = localStorage.getItem('id');
-		if (userID) {
-			dispatch(getName(userID));
-    }
-    console.log(userID);
+		// const taskID = localStorage.getItem('id');
+		// if (taskID) {
+			dispatch(getAllTask());
+    // }
+    // console.log(taskID);
   }, []);
 
   console.log('test')
+  // console.log(assignment);
   
 
   return (
