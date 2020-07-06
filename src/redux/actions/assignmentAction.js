@@ -8,7 +8,7 @@ export const addTask = (values) => {
 		return axios
 			.post(`${apiUrl}/task`, values)
 			.then((response) => {
-				// dispatch(addUserSuccess(response.data));
+				dispatch(postTaskSuccess(response.data.data));
 				// dispatch(createStorage(response.data.data._id));
 				console.log(response);
 				
@@ -20,6 +20,16 @@ export const addTask = (values) => {
 			});
 	};
 };
+
+export const postTaskSuccess = (data) => {
+	return {
+		type: 'POST_TASK',
+		payload: {
+			data
+		}
+	};
+};
+
 
 
 // export const getTask = (id) => {
@@ -86,6 +96,7 @@ export const getTaskIDSuccess = (data) => {
 
 export const deleteTask = (id) => {
 	return (dispatch) => {
+		console.log("woi")
 		return axios.delete(`${apiUrl}/task/${id}`)
 		.then((response) => {})
 		.catch((error) => {
@@ -95,3 +106,35 @@ export const deleteTask = (id) => {
 		})
 	}
 }
+
+
+
+export const editTask = (id) => {
+	console.log(id)
+	return (dispatch) => {
+		console.log(id)
+		return axios
+		.put(`${apiUrl}/task/${id.id}`,id)
+		.then((response) => {
+			console.log(response)
+			// dispatch(editTaskSuccess(response.data));
+			// dispatch(getTaskIDSuccess(response.data));
+			dispatch(getAllTask());
+		})
+		.catch((error) => {
+			console.log(error);
+			throw error;
+		});
+	}
+}
+	
+
+
+export const editTaskSuccess = (data) => {
+	return {
+		type: 'EDIT_TASK',
+		payload: {
+			data
+		}
+	};
+};

@@ -54,6 +54,7 @@ export default function CustomizedTables() {
   const classes = useStyles();
   const dispatch = useDispatch()
   const allAssignment = useSelector((state) => state.allAssignment)
+  console.log(allAssignment)
 
   const deleteThisTask = async(id) => {
     await dispatch(deleteTask(id))
@@ -77,7 +78,7 @@ export default function CustomizedTables() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {allAssignment.map((row) => (
+          {allAssignment?.map((row) => (
             <StyledTableRow key={row._id}>
               <StyledTableCell component="th" scope="row">
                 {row.name}
@@ -86,7 +87,7 @@ export default function CustomizedTables() {
               <StyledTableCell align="right">{row.assignment}</StyledTableCell>
               <StyledTableCell align="right">{row.deadline}</StyledTableCell>
               <StyledTableCell align="right">{row.phone}</StyledTableCell>
-              <StyledTableCell align="right"><ModalEdit/></StyledTableCell>
+              <StyledTableCell align="right"><ModalEdit updateUser={row}/></StyledTableCell>
               <StyledTableCell align="right"><DeleteIcon onClick= {() => deleteThisTask(row._id)}></DeleteIcon></StyledTableCell>
             </StyledTableRow>
           ))}

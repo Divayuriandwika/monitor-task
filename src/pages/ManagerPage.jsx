@@ -22,7 +22,6 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Tablenew from '../component/NewTable'
-import ModalAdd from '../component/ModalAdd'
 import Add from '../component/Add'
 
 const drawerWidth = 240;

@@ -12,6 +12,9 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import { makeStyles } from "@material-ui/core/styles";
 import Fab from "@material-ui/core/Fab";
 import EditIcon from '@material-ui/icons/Edit';
+import {useDispatch, useSelector} from 'react-redux'
+import { setNestedObjectValues } from "formik";
+import { editTask, getTaskID } from '../redux/actions/assignmentAction'
 
 // import { updateUser, getUser } from "../redux/actions/userActions";
 
@@ -36,13 +39,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function FormDialog({ updateUser }) {
+    console.log(updateUser)
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
-    const [username, setName] = React.useState("");
-    const [avatar, setAvatar] = React.useState("");
-    const [city, setCity] = React.useState("");
-    const [age, setAge] = React.useState("");
-    const [about, setAbout] = React.useState("");
+    const [name, setName] = React.useState(updateUser.name);
+    const [division, setDivision] = React.useState(updateUser.division);
+    const [assignment, setAssignment] = React.useState(updateUser.assignment);
+    const [deadline, setDeadline] = React.useState(updateUser.deadline);
+    const [phone, setPhone] = React.useState(updateUser.phone);
     
 
     const handleClickOpen = () => {
@@ -53,33 +57,46 @@ function FormDialog({ updateUser }) {
         setOpen(false);
     };
 
-    const handleSave = async () => {
 
-        const Uid = localStorage.getItem('userid')
+    // const handleEdit = async () => {
 
-        localStorage.getItem('userid', JSON.stringify(Uid))
+
+
+    //     editTask(userProfile);
+
+    //     console.log(userProfile);
+        
+
+    //     getTaskID(userProfile.id);
+
+    //     setOpen(false);
+    // };
+
+    const dispatch = useDispatch()
+
+    const handleEdit = async() => {
+        // const Uid = localStorage.getItem('id')
+
+        // localStorage.getItem('id', JSON.stringify(Uid))
 
         // console.log(Uid,"uid");
-        
+        const user={
+            id: updateUser._id,
+            name,
+            division,
+            assignment,
+            deadline,
+            phone
+        }
 
-        const userProfile = {
-            id: Uid,
-            username,
-            city,
-            avatar,
-            age,
-            about,
-        };
+ 
+    await  dispatch(editTask(user))
+            setOpen(false);
+             alert ('Edit task success')
+            //   window.location.reload();
+      };
 
-        // updateUser(userProfile);
-
-        // console.log(userProfile);
-        
-
-        // getUser(userProfile.id);
-
-        setOpen(false);
-    };
+      
 
     return (
         <div className={classes.root}>
@@ -109,51 +126,51 @@ function FormDialog({ updateUser }) {
                         label="Employee's Name"
                         type="text"
                         fullWidth
-                        value={username}
+                        value={name}
                         onChange={(e) => setName(e.target.value)}
                     />
                     <TextField
                         margin="dense"
-                        id="City"
+                        id="Division"
                         label="Division"
                         type="text"
                         fullWidth
-                        value={city}
-                        onChange={(e) => setCity(e.target.value)}
+                        value={division}
+                        onChange={(e) => setDivision(e.target.value)}
                     />
                     <TextField
                         margin="dense"
-                        id="Age"
+                        id="Assignment"
                         label="Assignment"
                         type="text"
                         fullWidth
-                        value={age}
-                        onChange={(e) => setAge(e.target.value)}
+                        value={assignment}
+                        onChange={(e) => setAssignment(e.target.value)}
                     />
                     <TextField
                         margin="dense"
-                        id="About"
+                        id="Deadline"
                         label="Deadline"
                         type="number"
                         fullWidth
-                        value={about}
-                        onChange={(e) => setAbout(e.target.value)}
+                        value={deadline}
+                        onChange={(e) => setDeadline(e.target.value)}
                     />
                     <TextField
                         margin="dense"
-                        id="Avatar"
+                        id="Phone"
                         label="Phone Number"
                         type="number"
                         fullWidth
-                        value={avatar}
-                        onChange={(e) => setAvatar(e.target.value)}
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
                     />
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose} color="primary">
                         Cancel
                     </Button>
-                    <Button onClick={handleSave} color="primary">
+                    <Button onClick={handleEdit} color="primary">
                         Save
                     </Button>
                 </DialogActions>

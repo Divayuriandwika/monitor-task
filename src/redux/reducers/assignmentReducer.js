@@ -1,11 +1,14 @@
 const assignmentReducer = (state = [], action) => {
     switch (action.type){
         case "GET_TASK" :
-            return action.payload.data;
+            state= [...action.payload.data];
+            return state;
        case "POST_TASK" :
-            return action.payload.data;
+           state = [...state, action.payload.data]
+            return state;
         case "EDIT_TASK" :
-            return action.payload.data;
+            state = [...state, action.payload.data]
+            return state;
         case "DELETE_TASK" :
             return action.payload.data;
         default :
