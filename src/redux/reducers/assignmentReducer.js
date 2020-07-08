@@ -10,7 +10,15 @@ const assignmentReducer = (state = [], action) => {
             state = [...state, action.payload.data]
             return state;
         case "DELETE_TASK" :
-            return action.payload.data;
+            const index = state.findIndex(res=> res._id === action.payload.data._id)
+
+            if(index !== -1 ){
+                state= [
+                    ...state.slice(0,index),
+                    ...state.slice(index+1),
+                    ]
+            }
+            return state;
         default :
             return state
     }

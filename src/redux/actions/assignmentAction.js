@@ -9,7 +9,6 @@ export const addTask = (values) => {
 			.post(`${apiUrl}/task`, values)
 			.then((response) => {
 				dispatch(postTaskSuccess(response.data.data));
-				// dispatch(createStorage(response.data.data._id));
 				console.log(response);
 				
 			})
@@ -31,20 +30,6 @@ export const postTaskSuccess = (data) => {
 };
 
 
-
-// export const getTask = (id) => {
-// 	return (dispatch) => {
-// 		return axios
-// 			.get(`${apiUrl}/task/${id}`)
-// 			.then((response) => {
-// 				dispatch(getTaskSuccess(response.data));
-// 			})
-// 			.catch((error) => {
-// 				console.log(error);
-// 				throw error;
-// 			});
-// 	};
-// };
 export const getTaskSuccess = (data) => {
 	return {
 		type: 'GET_TASK',
@@ -71,34 +56,36 @@ export const getAllTask = () => {
 }
 
 
-export const getTaskID = (id) => {
-	return (dispatch) => {
-		return axios
-			.get(`${apiUrl}/task/manager/${id}`)
-			.then((response) => {
-				dispatch(getTaskIDSuccess(response.data));
-			})
-			.catch((error) => {
-				console.log(error);
-				throw error;
-			});
-	};
-};
-export const getTaskIDSuccess = (data) => {
-	return {
-		type: 'GET_TASK',
-		payload: {
-			data
-		}
-	};
-};
+// export const getTaskID = (id) => {
+// 	return (dispatch) => {
+// 		return axios
+// 			.get(`${apiUrl}/task/manager/${id}`)
+// 			.then((response) => {
+// 				dispatch(getTaskIDSuccess(response.data));
+// 			})
+// 			.catch((error) => {
+// 				console.log(error);
+// 				throw error;
+// 			});
+// 	};
+// };
+// export const getTaskIDSuccess = (data) => {
+// 	return {
+// 		type: 'GET_TASK',
+// 		payload: {
+// 			data
+// 		}
+// 	};
+// };
 
 
 export const deleteTask = (id) => {
 	return (dispatch) => {
-		console.log("woi")
-		return axios.delete(`${apiUrl}/task/${id}`)
-		.then((response) => {})
+		return axios
+		.delete(`${apiUrl}/task/${id}`)
+		.then((response) => {
+			dispatch(deleteIDSuccess(response.data.data));
+		})
 		.catch((error) => {
 			console.log(error);
 			throw error;
@@ -106,6 +93,15 @@ export const deleteTask = (id) => {
 		})
 	}
 }
+
+export const deleteIDSuccess = (data) => {
+	return {
+		type: 'DELETE_TASK',
+		payload: {
+			data
+		}
+	};
+};
 
 
 
@@ -117,8 +113,6 @@ export const editTask = (id) => {
 		.put(`${apiUrl}/task/${id.id}`,id)
 		.then((response) => {
 			console.log(response)
-			// dispatch(editTaskSuccess(response.data));
-			// dispatch(getTaskIDSuccess(response.data));
 			dispatch(getAllTask());
 		})
 		.catch((error) => {

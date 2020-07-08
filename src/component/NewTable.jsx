@@ -59,7 +59,7 @@ export default function CustomizedTables() {
   const deleteThisTask = async(id) => {
     await dispatch(deleteTask(id))
     await alert ('Delete task success')
-    await window.location.reload();
+    // await window.location.reload();
   };
 
 
